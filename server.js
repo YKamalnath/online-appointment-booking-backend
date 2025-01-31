@@ -17,8 +17,8 @@ app.use(express.json()); // for parsing application/json
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'officialwep009@gmail.com',
-    pass: 'tgfu dqtj smzw fsdu'  // Replace with app-specific password if 2FA is enabled
+    user: '', // you email address
+    pass: ''  // Replace with app-specific password if 2FA is enabled
   }
 });
 
