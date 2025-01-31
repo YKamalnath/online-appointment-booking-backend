@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sanji-medical",
+  "private_key_id": "9948430fda4946e0ff5ab60a5dd8719250d4f385",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCxXkPy6N04P6xR\nxGoT9mF5uYFET7wOULVG8vhRSQ/S29JU/LGayTVeibI+d82TDyvSZaQ1Ssk1JUfm\n61Et3GbxBlwZhU3CA0vrAdusj/XFEvKeXgzpNUELiOnGLu6YKF1efbyA6lUOJHBQ\nVmO0pJfLfQGrI7RewpQeCjvwMPnrNkkbX5xGd23lJEvfiQqQ5pLbK6+tBy0OkA14\nWfnJldFc40TkRCzBU8c9ACleka8X4JWVXY+UM5T25VipCgYaTiMLCAnASt3enDTZ\njPoA9qCRu+u1do7t7QDgRt1PBPkP8OUQrxPYpola0tvuFMIucZkx3vgVN7bl0AlE\nBiZvwbyTAgMBAAECggEAAiVfCAbSlD/HXymgizR83fc6ndQJrLZmEo4VwKcWULmY\n8xV9NWw5iGoWnmdnEs86LoGic2IVMSMFZ0m2HZlmikACYcsQ1aXVXOolxiL8kIbI\n9k0H8aBCqAKJzDgwFLM2MTB7/8krXgOA/BweZ+i3gB5iJIScVwAaWmiPKEsTrBZR\nqQFvrygbbCtKSsF7SkF8FRZSb+Iq2lIsOsIuXM2iO7tB0L83FSHizRjFsjlp77ju\nPHGZ3I4V1GeCSh7yRgCoQVZ6kelpIrvqd2ek9DPEOvdDN0nghqB/yZK4uNGxTxEl\n3gXRx7kScAk3V8zXerqlqkJ29nvhiGLhv4SuvTPCgQKBgQDxZfEE7dPL3UqTvnHR\n9h2N5en3hJBGdIUhiU1xzrxrvXjGjfF/I4dKF3M1Aq3OJRVxcdB4hUrLEArjlX2P\nVFdcEBHC7RyrCduFXcgWOuP8UmB8ec48ruaPywzoEkeM12yyPPsvGGRFGsGqrujv\nMdo3+895V/2jJAl3RLmKOPv1MwKBgQC8GNFVVgmjqdI1mJ51r9fj+L36KzJN+M1b\n5kOSFFWN0XjNXrqP+VklA4JS/6tvdEzP1vru7mIOiF0YjxTsrHsmPqcvqzI1R/N7\nDm/trlYr9AQ/tBghhsw81/p/ZNreWecIsYnbeLKyQ8t8FBuR3bqYD7/67LGG6EFA\n8JxAAGpbIQKBgQCnX4c9Y6j2MPkEd4dzjLHxMPiIJeHi9+dW2VxZDH6YNUcIZGKN\nRJUJSjkXCER6Kjwz7DYfWkwBf54NLhlgx5nKu1mVTdISxULvtZaF009AI93CcLIO\nYTZ7fM32GraBcNxsuNtwS/k58NNXBO986ZPkPTQdbmTuOI5Xo88Bh4ErAQKBgFvN\neQ2/SkEYt0H1VRF3W1UmqAIbZxfrIL+DqOL5DbCD1gPWAhQWzM1l4wuDQTbKelrO\nP/axXiZdo6JC4yGIJSrLVWnMklqy3UDoEPTeK6yUEibNTSG/2pqvhtD6dmAjXME/\ndVsqk3yx3fSXE8WjhFiHB1n+f76qSH7bcEdEbKRBAoGBANaQ7tOSBUq1xzxXqh9S\nIDzculKS70mjRmTAA0M60MGeATDjpzuoIRCvH7PFWKln5vyIZBGSpTMaihdmCXKf\nbj7wpD1w5PRO2nGuES23KJdcuvafr06msPe0qrjBt+PMfDM2DkTcpsM7LUwMMkKL\namVUtfQVgfqO0UslPj+XwrPr\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@sanji-medical.iam.gserviceaccount.com",
+  "client_id": "111879664025260241608",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40sanji-medical.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
