@@ -14,15 +14,12 @@ app.use(cors());
 app.use(express.json()); // for parsing application/json
 
 
-
-
-// Email transport setup using Nodemailer
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // Or your email provider
+  service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER, // Set your email address here
-    pass: process.env.EMAIL_PASS, // Set your email password here
-  },
+    user: 'officialwep009@gmail.com',
+    pass: 'tgfu dqtj smzw fsdu'  // Replace with app-specific password if 2FA is enabled
+  }
 });
 
 
@@ -42,6 +39,13 @@ app.post("/api/contact-doctor", async (req, res) => {
     subject: `New Message from ${name}`,
     text: `You have received a new message from ${name} (${email}):\n\n${message}`,
   };
+
+  // const mailOptions = {
+  //   from: 'officialwep009@gmail.com',
+  //   to: 'johnkamal2000@gmail.com',
+  //   subject: 'Test Email',
+  //   text: 'Hello world!'
+  // };
 
   try {
     await transporter.sendMail(mailOptions);
