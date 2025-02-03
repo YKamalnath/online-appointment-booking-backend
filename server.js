@@ -181,6 +181,18 @@ app.post("/appointments", verifyToken, async (req, res) => {
   }
 
   try {
+
+    // Check if the time slot is already taken
+    const snapshot = await db.collection("appointments")
+      .where("date", "==", date)
+      .where("time", "==", time)
+      .get();
+
+    if (!snapshot.empty) {
+      return res.status(400).send({ message: "This time slot is already booked." });
+    }
+    
+    // Save the appointment if the time slot is available
     const appointmentRef = await db.collection("appointments").add({
       name,
       date,
