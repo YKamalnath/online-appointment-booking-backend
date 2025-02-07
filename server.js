@@ -264,6 +264,23 @@ app.get("/api/user-info", verifyToken, async (req, res) => {
 });
 
 
+app.get("/api/user-info/:uid", verifyToken, async (req, res) => {
+  try {
+    const userRef = db.collection("users").doc(req.params.uid);
+    const doc = await userRef.get();
+
+    if (!doc.exists) {
+      return res.status(404).send({ message: "User information not found" });
+    }
+
+    res.status(200).send(doc.data());
+  } catch (error) {
+    res.status(500).send({ message: "Error fetching user information", error: error.message });
+  }
+});
+
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
