@@ -223,6 +223,45 @@ app.get("/appointments", verifyToken, async (req, res) => {
   }
 });
 
+//save user information in db
+app.post("/api/user-info", verifyToken, async (req, res) => {
+  const { name, dob, email, address, description } = req.body;
+
+  if (!name || !dob || !email || !address || !description) {
+    return res.status(400).send({ message: "All fields are required" });
+  }
+
+  try {
+    const userRef = db.collection("users").doc(req.user.uid);
+    await userRef.set({
+      name,
+      dob,
+      email,
+      address,
+      description,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    res.status(201).send({ message: "User information saved successfully" });
+  } catch (error) {
+    res.status(500).send({ message: "Error saving user information", error: error.message });
+  }
+});
+
+app.get("/api/user-info", verifyToken, async (req, res) => {
+  try {
+    const userRef = db.collection("users").doc(req.user.uid);
+    const doc = await userRef.get();
+
+    if (!doc.exists) {
+      return res.status(404).send({ message: "User information not found" });
+    }
+
+    res.status(200).send(doc.data());
+  } catch (error) {
+    res.status(500).send({ message: "Error fetching user information", error: error.message });
+  }
+});
 
 
 
