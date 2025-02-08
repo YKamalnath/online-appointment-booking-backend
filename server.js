@@ -199,6 +199,7 @@ app.post("/appointments", verifyToken, async (req, res) => {
       time,
       contact,
       userId: req.user.uid,
+      status: "Pending",
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
     });
 
@@ -276,6 +277,42 @@ app.get("/api/user-info/:uid", verifyToken, async (req, res) => {
     res.status(200).send(doc.data());
   } catch (error) {
     res.status(500).send({ message: "Error fetching user information", error: error.message });
+  }
+});
+//patient appointment view
+app.get("/user-appointments", verifyToken, async (req, res) => {
+  try {
+    const userAppointmentsRef = db.collection("appointments").where("userId", "==", req.user.uid);
+    const snapshot = await userAppointmentsRef.get();
+
+    if (snapshot.empty) {
+      return res.status(200).json([]); // Return empty list instead of "not found"
+    }
+
+    const appointments = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    res.status(200).json(appointments);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching appointments", error: error.message });
+  }
+});
+
+//Updating Appointment Status
+app.put("/appointments/:id/status", verifyToken, async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  // Ensure only doctors can update the status
+  if (req.user.role !== "doctor") {
+    return res.status(403).send({ message: "Forbidden: Access denied" });
+  }
+
+  try {
+    const appointmentRef = db.collection("appointments").doc(id);
+    await appointmentRef.update({ status });
+
+    res.status(200).send({ message: `Appointment ${status.toLowerCase()} successfully` });
+  } catch (error) {
+    res.status(500).send({ message: "Error updating appointment status", error: error.message });
   }
 });
 
