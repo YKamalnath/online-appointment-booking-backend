@@ -296,25 +296,6 @@ app.get("/user-appointments", verifyToken, async (req, res) => {
   }
 });
 
-//Updating Appointment Status
-app.put("/appointments/:id/status", verifyToken, async (req, res) => {
-  const { id } = req.params;
-  const { status } = req.body;
-
-  // Ensure only doctors can update the status
-  if (req.user.role !== "doctor") {
-    return res.status(403).send({ message: "Forbidden: Access denied" });
-  }
-
-  try {
-    const appointmentRef = db.collection("appointments").doc(id);
-    await appointmentRef.update({ status });
-
-    res.status(200).send({ message: `Appointment ${status.toLowerCase()} successfully` });
-  } catch (error) {
-    res.status(500).send({ message: "Error updating appointment status", error: error.message });
-  }
-});
 
 
 
