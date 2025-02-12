@@ -93,6 +93,14 @@ app.post("/signup", async (req, res) => {
     // Set user role as a custom claim
     await admin.auth().setCustomUserClaims(userRecord.uid, { role: userRole });
 
+     // Save user details in Firestore
+    //  await db.collection("users").doc(userRecord.uid).set({
+    //   name,
+    //   email,
+    //   role: userRole,
+    //   createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    // });
+
     res.status(201).send({ message: "User created successfully", uid: userRecord.uid });
   } catch (error) {
     res.status(400).send({ message: error.message });
