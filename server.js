@@ -121,6 +121,26 @@ app.post("/login", verifyToken, async (req, res) => {
   }
 });
 
+//Login User name 
+app.post("/get-email", async (req, res) => {
+  const { name } = req.body;
+  if (!name) return res.status(400).json({ message: "Name is required" });
+
+  try {
+    const usersRef = db.collection("users");
+    const snapshot = await usersRef.where("name", "==", name).limit(1).get();
+
+    if (snapshot.empty) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const user = snapshot.docs[0].data();
+    return res.json({ email: user.email });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
 
 
 // Route to fetch all users (Only accessible by doctors)
